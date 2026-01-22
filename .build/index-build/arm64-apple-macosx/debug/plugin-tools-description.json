@@ -1,0 +1,248 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.MindfulBreak-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/sources",
+      "importPath" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "MindfulBreak",
+      "moduleOutputPath" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/Modules/MindfulBreak.swiftmodule",
+      "objects" : [
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/BreakContentProvider.swift.o",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/BreakView.swift.o",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/BreakWindowController.swift.o",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/MenuBarView.swift.o",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-enable-batch-mode",
+        "-Onone",
+        "-enable-testing",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "MindfulBreak_main",
+        "-swift-version",
+        "5",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-F",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "mindfulbreak"
+      ],
+      "outputFileMapPath" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/Modules/MindfulBreak.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift",
+        "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift"
+      ],
+      "tempsPath" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "MindfulBreak" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "MindfulBreak",
+      "-package-name",
+      "mindfulbreak",
+      "-incremental",
+      "-c",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift",
+      "-I",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-enable-batch-mode",
+      "-Onone",
+      "-enable-testing",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "MindfulBreak_main",
+      "-swift-version",
+      "5",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-F",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "mindfulbreak",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "MindfulBreak" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "enableAllTraits" : false
+  },
+  "writeCommands" : {
+    "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/MindfulBreak.build/sources"
+    },
+    "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/index-build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

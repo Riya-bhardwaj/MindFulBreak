@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "MindfulBreak-arm64-apple-macosx15.0-debug.exe": ["<MindfulBreak-arm64-apple-macosx15.0-debug.exe>"]
+  "MindfulBreak-arm64-apple-macosx15.0-debug.module": ["<MindfulBreak-arm64-apple-macosx15.0-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<MindfulBreak-arm64-apple-macosx15.0-debug.exe>","<MindfulBreak-arm64-apple-macosx15.0-debug.module>"]
+  "test": ["<MindfulBreak-arm64-apple-macosx15.0-debug.exe>","<MindfulBreak-arm64-apple-macosx15.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak":
+    is-mutated: true
+commands:
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak-entitlement.plist"]
+    description: "Write auxiliary file /Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak-entitlement.plist"
+
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift"]
+    outputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/sources"]
+    description: "Write auxiliary file /Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/sources"
+
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakContentProvider.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakWindowController.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/MenuBarView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/main.swift.o"]
+    outputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.product/Objects.LinkFileList"
+
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<MindfulBreak-arm64-apple-macosx15.0-debug.exe>":
+    tool: phony
+    inputs: ["<MindfulBreak-arm64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    outputs: ["<MindfulBreak-arm64-apple-macosx15.0-debug.exe>"]
+
+  "<MindfulBreak-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakContentProvider.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakWindowController.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/MenuBarView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/main.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/Modules/MindfulBreak.swiftmodule"]
+    outputs: ["<MindfulBreak-arm64-apple-macosx15.0-debug.module>"]
+
+  "C.MindfulBreak-arm64-apple-macosx15.0-debug.exe":
+    tool: shell
+    inputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakContentProvider.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakWindowController.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/MenuBarView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/main.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.product/Objects.LinkFileList"]
+    outputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/MindfulBreak"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug","-o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak","-module-name","MindfulBreak","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_MindfulBreak_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.product/Objects.LinkFileList","-target","arm64-apple-macosx13.0","-Xlinker","-add_ast_path","-Xlinker","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/Modules/MindfulBreak.swiftmodule","-F","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xlinker","-rpath","-Xlinker","/Library/Developer/CommandLineTools/Library/Developer/Frameworks"]
+
+  "C.MindfulBreak-arm64-apple-macosx15.0-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak-entitlement.plist"]
+    outputs: ["<MindfulBreak-arm64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/MindfulBreak"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak-entitlement.plist","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak"]
+
+  "C.MindfulBreak-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/sources"]
+    outputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakContentProvider.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/BreakWindowController.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/MenuBarView.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/main.swift.o","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/Modules/MindfulBreak.swiftmodule"]
+    description: "Compiling Swift Module 'MindfulBreak' (5 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","MindfulBreak","-emit-dependencies","-emit-module","-emit-module-path","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/Modules/MindfulBreak.swiftmodule","-output-file-map","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/output-file-map.json","-incremental","-c","@/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/MindfulBreak.build/sources","-I","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx13.0","-enable-batch-mode","-index-store-path","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j12","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","MindfulBreak_main","-color-diagnostics","-swift-version","5","-F","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","mindfulbreak"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Package.swift","/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

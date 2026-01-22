@@ -1,0 +1,32 @@
+{
+  "": {
+    "dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/MindfulBreak.d",
+    "object": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/MindfulBreak.o",
+    "swift-dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/master.swiftdeps"
+  },
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakContentProvider.swift": {
+    "object": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakContentProvider.swift.o",
+    "swiftmodule": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakContentProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakContentProvider.swiftdeps"
+  },
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakView.swift": {
+    "object": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakView.swift.o",
+    "swiftmodule": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakView~partial.swiftmodule",
+    "swift-dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakView.swiftdeps"
+  },
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/BreakWindowController.swift": {
+    "object": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakWindowController.swift.o",
+    "swiftmodule": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakWindowController~partial.swiftmodule",
+    "swift-dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/BreakWindowController.swiftdeps"
+  },
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/MenuBarView.swift": {
+    "object": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/MenuBarView.swift.o",
+    "swiftmodule": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/MenuBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/MenuBarView.swiftdeps"
+  },
+  "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/Sources/main.swift": {
+    "object": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/main.swift.o",
+    "swiftmodule": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/riyabhardwaj/my-workspace/my_work/MindfulBreak/.build/arm64-apple-macosx/release/MindfulBreak.build/main.swiftdeps"
+  }
+}
