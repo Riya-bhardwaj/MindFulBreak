@@ -17,8 +17,6 @@ enum ContentState {
 class BreakContentProvider: ObservableObject {
     @Published var state: ContentState = .loading
     
-    private let unsplashAccessKey = ProcessInfo.processInfo.environment["UNSPLASH_ACCESS_KEY"] ?? ""
-    
     func loadContent(for preference: ContentPreference) {
         state = .loading
         
@@ -52,26 +50,23 @@ class BreakContentProvider: ObservableObject {
             "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800"
         ]
         
-        if !unsplashAccessKey.isEmpty {
-            guard let url = URL(string: "https://api.unsplash.com/photos/random?query=nature,calm,peaceful&orientation=landscape") else {
-                state = .loaded(.nature(imageURL: fallbackImages.randomElement()!))
+        guard let url = URL(string: "https://source.unsplash.com/random/800x600/?nature,calm,peaceful") else {
+            state = .loaded(.nature(imageURL: fallbackImages.randomElement()!))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 10
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            if let httpResponse = response as? HTTPURLResponse,
+               let imageUrl = httpResponse.url?.absoluteString,
+               httpResponse.statusCode == 200 {
+                state = .loaded(.nature(imageURL: imageUrl))
                 return
             }
-            
-            var request = URLRequest(url: url)
-            request.setValue("Client-ID \(unsplashAccessKey)", forHTTPHeaderField: "Authorization")
-            request.timeoutInterval = 10
-            
-            do {
-                let (data, _) = try await URLSession.shared.data(for: request)
-                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let urls = json["urls"] as? [String: Any],
-                   let regularURL = urls["regular"] as? String {
-                    state = .loaded(.nature(imageURL: regularURL))
-                    return
-                }
-            } catch { }
-        }
+        } catch { }
         
         state = .loaded(.nature(imageURL: fallbackImages.randomElement()!))
     }

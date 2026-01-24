@@ -16,8 +16,7 @@ struct BreakView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            
-            VStack(spacing: isFullScreen ? 24 : 16) {
+            VStack(spacing: isFullScreen ? 36 : 16) {
                 HStack {
                     if showTimeWarning {
                         HStack(spacing: 6) {
@@ -32,108 +31,95 @@ struct BreakView: View {
                         .background(Color.orange.opacity(0.2))
                         .cornerRadius(12)
                     }
-                    
                     Spacer()
-                    
                     Button(action: toggleFullScreen) {
                         Image(systemName: isFullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right")
                             .font(.title3)
-                            .foregroundColor(.white.opacity(0.6))
+                            .foregroundColor(.white.opacity(0.7))
                     }
                     .buttonStyle(.plain)
                     .padding(.trailing, 8)
-                    
                     Button(action: closeWindow) {
                         Image(systemName: "xmark.circle.fill")
                             .font(.title2)
-                            .foregroundColor(.white.opacity(0.6))
+                            .foregroundColor(.white.opacity(0.7))
                     }
                     .buttonStyle(.plain)
                     .padding()
                 }
-                
-                if !isFullScreen {
-                    VStack(spacing: 8) {
-                        ZStack {
-                            Circle()
-                                .stroke(Color.cyan.opacity(0.3), lineWidth: 3)
-                                .frame(width: 60, height: 60)
-                            
-                            Circle()
-                                .fill(
-                                    RadialGradient(
-                                        colors: [Color.cyan.opacity(0.6), Color.purple.opacity(0.3)],
-                                        center: .center,
-                                        startRadius: 5,
-                                        endRadius: 30
-                                    )
+                VStack(spacing: 8) {
+                    ZStack {
+                        Circle()
+                            .stroke(Color.cyan.opacity(0.3), lineWidth: 3)
+                            .frame(width: isFullScreen ? 80 : 60, height: isFullScreen ? 80 : 60)
+                        Circle()
+                            .fill(
+                                RadialGradient(
+                                    colors: [Color.cyan.opacity(0.6), Color.purple.opacity(0.3)],
+                                    center: .center,
+                                    startRadius: 5,
+                                    endRadius: isFullScreen ? 40 : 30
                                 )
-                                .frame(width: 50, height: 50)
-                                .scaleEffect(breatheScale)
-                                .animation(.easeInOut(duration: 4).repeatForever(autoreverses: true), value: breatheScale)
-                        }
-                        
-                        Text("Breathe & Relax")
-                            .font(.caption)
-                            .foregroundColor(.cyan.opacity(0.8))
+                            )
+                            .frame(width: isFullScreen ? 70 : 50, height: isFullScreen ? 70 : 50)
+                            .scaleEffect(breatheScale)
+                            .animation(.easeInOut(duration: 4).repeatForever(autoreverses: true), value: breatheScale)
                     }
+                    Text("Breathe & Relax")
+                        .font(isFullScreen ? .title3 : .caption)
+                        .foregroundColor(.cyan.opacity(0.8))
                 }
-                
                 contentView
-                
                 Spacer()
-                
-                if !isFullScreen {
-                    HStack(spacing: 16) {
-                        Button(action: {
-                            contentProvider.loadContent(for: preference)
-                        }) {
-                            HStack(spacing: 6) {
-                                Image(systemName: "arrow.clockwise")
-                                Text("Refresh")
-                            }
-                            .font(.subheadline)
-                            .foregroundColor(.cyan)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
-                            .background(Color.cyan.opacity(0.15))
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.cyan.opacity(0.3), lineWidth: 1)
-                            )
+                HStack(spacing: 20) {
+                    Button(action: {
+                        contentProvider.loadContent(for: preference)
+                    }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "arrow.clockwise")
+                            Text("Refresh")
                         }
-                        .buttonStyle(.plain)
-                        
-                        Button(action: closeWindow) {
-                            HStack(spacing: 6) {
-                                Image(systemName: "arrow.right.circle.fill")
-                                Text("Back to Work")
-                            }
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 32)
-                            .padding(.vertical, 12)
-                            .background(
-                                LinearGradient(
-                                    colors: [Color(hex: "00b894"), Color(hex: "00a8a8")],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .cornerRadius(25)
-                            .shadow(color: Color(hex: "00b894").opacity(0.4), radius: 8, y: 4)
-                        }
-                        .buttonStyle(.plain)
+                        .font(isFullScreen ? .title3 : .subheadline)
+                        .foregroundColor(.cyan)
+                        .padding(.horizontal, isFullScreen ? 32 : 20)
+                        .padding(.vertical, isFullScreen ? 16 : 10)
+                        .background(Color.cyan.opacity(0.15))
+                        .cornerRadius(24)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 24)
+                                .stroke(Color.cyan.opacity(0.3), lineWidth: 1)
+                        )
                     }
-                    .padding(.bottom, 24)
+                    .buttonStyle(.plain)
+                    Button(action: closeWindow) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "arrow.right.circle.fill")
+                            Text("Back to Work")
+                        }
+                        .font(isFullScreen ? .title3 : .headline)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, isFullScreen ? 40 : 32)
+                        .padding(.vertical, isFullScreen ? 18 : 12)
+                        .background(
+                            LinearGradient(
+                                colors: [Color(hex: "00b894"), Color(hex: "00a8a8")],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .cornerRadius(28)
+                        .shadow(color: Color(hex: "00b894").opacity(0.4), radius: 10, y: 4)
+                    }
+                    .buttonStyle(.plain)
                 }
+                .padding(.bottom, isFullScreen ? 50 : 24)
             }
+            .padding(isFullScreen ? 60 : 0)
         }
         .frame(
-            minWidth: isFullScreen ? nil : 540,
+            minWidth: isFullScreen ? 900 : 540,
             maxWidth: isFullScreen ? .infinity : 540,
-            minHeight: isFullScreen ? nil : 520,
+            minHeight: isFullScreen ? 600 : 520,
             maxHeight: isFullScreen ? .infinity : 520
         )
         .cornerRadius(isFullScreen ? 0 : 20)
@@ -498,7 +484,6 @@ struct AnimatedNatureView: View {
 
 struct SkyGradientView: View {
     let time: Double
-    
     var body: some View {
         LinearGradient(
             colors: [
