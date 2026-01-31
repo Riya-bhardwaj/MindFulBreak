@@ -4,6 +4,7 @@ import SwiftUI
 enum BreakContent {
     case techNews(headline: String, source: String)
     case joke(text: String)
+    case meme(imageURL: String, title: String)
 }
 
 enum ContentState {
@@ -19,21 +20,14 @@ class BreakContentProvider: ObservableObject {
     func loadContent(for preference: ContentPreference) {
         state = .loading
 
-        let actualPreference: ContentPreference
-        if preference == .surpriseMe {
-            actualPreference = [.tech, .jokes].randomElement() ?? .tech
-        } else {
-            actualPreference = preference
-        }
-
         Task {
-            switch actualPreference {
+            switch preference {
             case .tech:
                 await loadTechNews()
             case .jokes:
                 await loadJoke()
-            case .surpriseMe:
-                await loadTechNews()
+            case .meme:
+                await loadMeme()
             }
         }
     }
@@ -84,5 +78,37 @@ class BreakContentProvider: ObservableObject {
         } catch { }
         
         state = .loaded(.joke(text: fallbackJokes.randomElement()!))
+    }
+
+    private func loadMeme() async {
+        let fallbackMemes: [(String, String)] = [
+            ("https://i.imgur.com/HTisMpC.jpeg", "When the code works on the first try"),
+            ("https://i.imgur.com/y4E6ewB.jpeg", "Git push --force"),
+            ("https://i.imgur.com/6SoKhmq.jpeg", "It works on my machine"),
+            ("https://i.imgur.com/Q7IflQD.jpeg", "Debugging in production"),
+            ("https://i.imgur.com/WRuJYjp.jpeg", "Reading your own code after 6 months")
+        ]
+
+        guard let url = URL(string: "https://meme-api.com/gimme/ProgrammerHumor") else {
+            let meme = fallbackMemes.randomElement()!
+            state = .loaded(.meme(imageURL: meme.0, title: meme.1))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 5
+
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let imageURL = json["url"] as? String,
+               let title = json["title"] as? String {
+                state = .loaded(.meme(imageURL: imageURL, title: title))
+                return
+            }
+        } catch { }
+
+        let meme = fallbackMemes.randomElement()!
+        state = .loaded(.meme(imageURL: meme.0, title: meme.1))
     }
 }

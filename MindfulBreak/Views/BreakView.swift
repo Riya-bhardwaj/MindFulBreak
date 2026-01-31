@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BreakView: View {
-    @AppStorage("contentPreference") private var preference: ContentPreference = .surpriseMe
+    @AppStorage("contentPreference") private var preference: ContentPreference = .tech
     @StateObject private var contentProvider = BreakContentProvider()
     @State private var breatheScale: CGFloat = 1.0
     
@@ -118,6 +118,44 @@ struct BreakView: View {
                         .font(.body)
                         .multilineTextAlignment(.center)
                         .lineLimit(6)
+                        .padding(.horizontal)
+                }
+                .padding()
+                .frame(width: 400)
+                .background(Color.white.opacity(0.5))
+                .cornerRadius(12)
+
+            case .meme(let imageURL, let title):
+                VStack(spacing: 12) {
+                    AsyncImage(url: URL(string: imageURL)) { phase in
+                        switch phase {
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 380, maxHeight: 200)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        case .failure:
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.green.opacity(0.2))
+                                Image(systemName: "photo.fill")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.green.opacity(0.5))
+                            }
+                            .frame(width: 380, height: 200)
+                        case .empty:
+                            ProgressView()
+                                .frame(width: 380, height: 200)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                    Text(title)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
                         .padding(.horizontal)
                 }
                 .padding()

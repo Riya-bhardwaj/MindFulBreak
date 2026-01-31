@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MenuBarView: View {
     weak var appDelegate: AppDelegate?
-    @AppStorage("contentPreference") private var preference: ContentPreference = .surpriseMe
+    @AppStorage("contentPreference") private var preference: ContentPreference = .tech
     
     var body: some View {
         VStack(spacing: 16) {
@@ -71,13 +71,13 @@ struct MenuBarView: View {
 enum ContentPreference: String, CaseIterable {
     case tech = "Tech News"
     case jokes = "Jokes"
-    case surpriseMe = "Surprise Me"
+    case meme = "Tech Meme"
 
     var icon: String {
         switch self {
         case .tech: return "newspaper.fill"
         case .jokes: return "face.smiling.fill"
-        case .surpriseMe: return "sparkles"
+        case .meme: return "photo.fill"
         }
     }
 }

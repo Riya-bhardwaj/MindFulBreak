@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BreakView: View {
-    @AppStorage("contentPreference") private var preference: ContentPreference = .surpriseMe
+    @AppStorage("contentPreference") private var preference: ContentPreference = .tech
     @StateObject private var contentProvider = BreakContentProvider()
     @State private var breatheScale: CGFloat = 1.0
     @State private var showTimeWarning = false
@@ -301,6 +301,68 @@ struct BreakView: View {
                                 .stroke(Color.purple.opacity(0.2), lineWidth: 1)
                         )
                 )
+
+        case .meme(let imageURL, let title):
+            VStack(spacing: 16) {
+                AsyncImage(url: URL(string: imageURL)) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: isFullScreen ? 500 : 400, maxHeight: isFullScreen ? 350 : 220)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    case .failure:
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.green.opacity(0.2))
+                            VStack(spacing: 8) {
+                                Image(systemName: "photo.fill")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.green.opacity(0.6))
+                                Text("Failed to load meme")
+                                    .font(.caption)
+                                    .foregroundColor(.white.opacity(0.6))
+                            }
+                        }
+                        .frame(width: isFullScreen ? 500 : 400, height: isFullScreen ? 350 : 220)
+                    case .empty:
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.green.opacity(0.1))
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .green))
+                        }
+                        .frame(width: isFullScreen ? 500 : 400, height: isFullScreen ? 350 : 220)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+
+                Text(title)
+                    .font(isFullScreen ? .title3 : .subheadline)
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(3)
+                    .padding(.horizontal, 20)
+
+                HStack(spacing: 4) {
+                    Image(systemName: "face.smiling")
+                    Text("Tech Meme")
+                }
+                .font(.caption)
+                .foregroundColor(.green.opacity(0.7))
+            }
+            .padding(24)
+            .frame(maxWidth: isFullScreen ? 600 : 480, maxHeight: isFullScreen ? .infinity : 320)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.white.opacity(0.05))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color.green.opacity(0.2), lineWidth: 1)
+                    )
+            )
         }
     }
 }

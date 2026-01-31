@@ -1,13 +1,13 @@
 # MindfulBreak
 
-A minimal macOS menu bar app for mindful breaks using a Pomodoro-style timer. Features tech news, programming jokes, and a quick game.
+A minimal macOS menu bar app for mindful breaks using a Pomodoro-style timer. Features tech news, programming jokes, a quick game, and tech memes.
 
 ## Features
 - Menu bar timer and break reminders
 - Tech news headlines
 - Programming jokes
 - Quick Tic-Tac-Toe game
-- Surprise Me: random content
+- Tech memes from r/ProgrammerHumor
 
 ## Install & Run
 - macOS 13.0+ required
