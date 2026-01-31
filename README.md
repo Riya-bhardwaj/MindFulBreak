@@ -1,10 +1,9 @@
-# 🍃 MindfulBreak
+# MindfulBreak
 
-A minimal macOS menu bar app for mindful breaks using a Pomodoro-style timer. Features animated nature scenes, tech news, programming jokes, and a quick game.
+A minimal macOS menu bar app for mindful breaks using a Pomodoro-style timer. Features tech news, programming jokes, and a quick game.
 
 ## Features
 - Menu bar timer and break reminders
-- Animated nature scene (random images from the internet)
 - Tech news headlines
 - Programming jokes
 - Quick Tic-Tac-Toe game

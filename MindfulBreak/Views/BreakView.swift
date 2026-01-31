@@ -90,25 +90,6 @@ struct BreakView: View {
     private func contentCard(for content: BreakContent) -> some View {
         VStack(spacing: 16) {
             switch content {
-            case .nature(let imageURL):
-                AsyncImage(url: URL(string: imageURL)) { phase in
-                    switch phase {
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 400, height: 200)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    case .failure:
-                        placeholderImage
-                    case .empty:
-                        ProgressView()
-                            .frame(width: 400, height: 200)
-                    @unknown default:
-                        placeholderImage
-                    }
-                }
-                
             case .techNews(let headline, let source):
                 VStack(spacing: 12) {
                     Image(systemName: "newspaper.fill")
@@ -127,7 +108,7 @@ struct BreakView: View {
                 .frame(width: 400)
                 .background(Color.white.opacity(0.5))
                 .cornerRadius(12)
-                
+
             case .joke(let text):
                 VStack(spacing: 12) {
                     Image(systemName: "face.smiling.fill")
@@ -145,17 +126,6 @@ struct BreakView: View {
                 .cornerRadius(12)
             }
         }
-    }
-    
-    private var placeholderImage: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.green.opacity(0.2))
-            Image(systemName: "leaf.fill")
-                .font(.system(size: 50))
-                .foregroundColor(.green.opacity(0.5))
-        }
-        .frame(width: 400, height: 200)
     }
 }
 

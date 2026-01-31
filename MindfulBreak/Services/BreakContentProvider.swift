@@ -2,7 +2,6 @@ import Foundation
 import SwiftUI
 
 enum BreakContent {
-    case nature(imageURL: String)
     case techNews(headline: String, source: String)
     case joke(text: String)
 }
@@ -19,56 +18,24 @@ class BreakContentProvider: ObservableObject {
     
     func loadContent(for preference: ContentPreference) {
         state = .loading
-        
+
         let actualPreference: ContentPreference
         if preference == .surpriseMe {
-            actualPreference = [.nature, .tech, .jokes].randomElement() ?? .nature
+            actualPreference = [.tech, .jokes].randomElement() ?? .tech
         } else {
             actualPreference = preference
         }
-        
+
         Task {
             switch actualPreference {
-            case .nature:
-                await loadNatureImage()
             case .tech:
                 await loadTechNews()
             case .jokes:
                 await loadJoke()
             case .surpriseMe:
-                await loadNatureImage()
+                await loadTechNews()
             }
         }
-    }
-    
-    private func loadNatureImage() async {
-        let fallbackImages = [
-            "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
-            "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800",
-            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800",
-            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800",
-            "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800"
-        ]
-        
-        guard let url = URL(string: "https://source.unsplash.com/random/800x600/?nature,calm,peaceful") else {
-            state = .loaded(.nature(imageURL: fallbackImages.randomElement()!))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.timeoutInterval = 10
-        
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            if let httpResponse = response as? HTTPURLResponse,
-               let imageUrl = httpResponse.url?.absoluteString,
-               httpResponse.statusCode == 200 {
-                state = .loaded(.nature(imageURL: imageUrl))
-                return
-            }
-        } catch { }
-        
-        state = .loaded(.nature(imageURL: fallbackImages.randomElement()!))
     }
     
     private func loadTechNews() async {

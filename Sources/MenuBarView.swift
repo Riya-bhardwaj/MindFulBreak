@@ -113,25 +113,22 @@ struct MenuBarView: View {
 }
 
 enum ContentPreference: String, CaseIterable {
-    case nature = "Nature Scene"
     case tech = "Tech News"
     case jokes = "Programming Jokes"
     case game = "Quick Game"
     case surpriseMe = "Surprise Me"
-    
+
     var icon: String {
         switch self {
-        case .nature: return "moon.stars.fill"
         case .tech: return "newspaper.fill"
         case .jokes: return "face.smiling.fill"
         case .game: return "gamecontroller.fill"
         case .surpriseMe: return "sparkles"
         }
     }
-    
+
     var color: Color {
         switch self {
-        case .nature: return .cyan
         case .tech: return .blue
         case .jokes: return .orange
         case .game: return .purple
