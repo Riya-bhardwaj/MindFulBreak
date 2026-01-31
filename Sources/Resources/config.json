@@ -1,0 +1,5 @@
+{
+    "workDurationMinutes": 45,
+    "breakDurationSeconds": 300,
+    "warningTimeSeconds": 5
+}
