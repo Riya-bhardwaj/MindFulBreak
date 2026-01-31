@@ -71,12 +71,14 @@ struct MenuBarView: View {
 enum ContentPreference: String, CaseIterable {
     case tech = "Tech News"
     case jokes = "Jokes"
+    case game = "Quick Game"
     case meme = "Tech Meme"
 
     var icon: String {
         switch self {
         case .tech: return "newspaper.fill"
         case .jokes: return "face.smiling.fill"
+        case .game: return "gamecontroller.fill"
         case .meme: return "photo.fill"
         }
     }

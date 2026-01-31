@@ -290,17 +290,28 @@ struct BreakView: View {
                     )
             )
             
-        case .game:
-            TicTacToeView()
-                .frame(maxWidth: isFullScreen ? 500 : 480, maxHeight: isFullScreen ? 400 : 300)
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white.opacity(0.05))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.purple.opacity(0.2), lineWidth: 1)
-                        )
-                )
+        case .game(let gameType):
+            Group {
+                switch gameType {
+                case .ticTacToe:
+                    TicTacToeView()
+                case .memoryMatch:
+                    MemoryMatchView()
+                case .rockPaperScissors:
+                    RockPaperScissorsView()
+                case .numberGuess:
+                    NumberGuessView()
+                }
+            }
+            .frame(maxWidth: isFullScreen ? 500 : 480, maxHeight: isFullScreen ? 400 : 300)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.white.opacity(0.05))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color.purple.opacity(0.2), lineWidth: 1)
+                    )
+            )
 
         case .meme(let imageURL, let title):
             VStack(spacing: 16) {
@@ -515,6 +526,366 @@ struct TicTacToeView: View {
         winner = nil
         gameOver = false
         winningCells = []
+    }
+}
+
+// MARK: - Memory Match Game
+struct MemoryMatchView: View {
+    @State private var cards: [MemoryCard] = []
+    @State private var flippedIndices: [Int] = []
+    @State private var matchedPairs: Int = 0
+    @State private var moves: Int = 0
+    @State private var isProcessing = false
+
+    private let emojis = ["🎮", "💻", "🚀", "⚡️", "🔥", "💡"]
+
+    var body: some View {
+        VStack(spacing: 16) {
+            HStack(spacing: 8) {
+                Image(systemName: "square.grid.3x3.fill")
+                    .foregroundColor(.purple)
+                Text("Memory Match")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+
+            HStack(spacing: 20) {
+                Text("Moves: \(moves)")
+                    .font(.caption)
+                    .foregroundColor(.white.opacity(0.7))
+                Text("Pairs: \(matchedPairs)/6")
+                    .font(.caption)
+                    .foregroundColor(.white.opacity(0.7))
+            }
+
+            if matchedPairs == 6 {
+                Text("You Win! 🎉")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .foregroundColor(.green)
+            }
+
+            LazyVGrid(columns: Array(repeating: GridItem(.fixed(50), spacing: 8), count: 4), spacing: 8) {
+                ForEach(0..<cards.count, id: \.self) { index in
+                    CardView(card: cards[index])
+                        .onTapGesture { flipCard(at: index) }
+                }
+            }
+
+            Button(action: resetGame) {
+                HStack(spacing: 4) {
+                    Image(systemName: "arrow.counterclockwise")
+                    Text("New Game")
+                }
+                .font(.caption)
+                .foregroundColor(.purple)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(Color.purple.opacity(0.15))
+                .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding()
+        .onAppear { resetGame() }
+    }
+
+    private func flipCard(at index: Int) {
+        guard !isProcessing,
+              !cards[index].isMatched,
+              !flippedIndices.contains(index),
+              flippedIndices.count < 2 else { return }
+
+        cards[index].isFaceUp = true
+        flippedIndices.append(index)
+
+        if flippedIndices.count == 2 {
+            moves += 1
+            isProcessing = true
+            checkForMatch()
+        }
+    }
+
+    private func checkForMatch() {
+        let first = flippedIndices[0]
+        let second = flippedIndices[1]
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            if cards[first].emoji == cards[second].emoji {
+                cards[first].isMatched = true
+                cards[second].isMatched = true
+                matchedPairs += 1
+            } else {
+                cards[first].isFaceUp = false
+                cards[second].isFaceUp = false
+            }
+            flippedIndices.removeAll()
+            isProcessing = false
+        }
+    }
+
+    private func resetGame() {
+        let shuffled = (emojis + emojis).shuffled()
+        cards = shuffled.map { MemoryCard(emoji: $0) }
+        flippedIndices.removeAll()
+        matchedPairs = 0
+        moves = 0
+        isProcessing = false
+    }
+}
+
+struct MemoryCard {
+    let emoji: String
+    var isFaceUp = false
+    var isMatched = false
+}
+
+struct CardView: View {
+    let card: MemoryCard
+
+    var body: some View {
+        ZStack {
+            if card.isFaceUp || card.isMatched {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(card.isMatched ? Color.green.opacity(0.3) : Color.white.opacity(0.2))
+                    .frame(width: 50, height: 50)
+                Text(card.emoji)
+                    .font(.title2)
+            } else {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.purple.opacity(0.4))
+                    .frame(width: 50, height: 50)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.purple.opacity(0.6), lineWidth: 1)
+                    )
+            }
+        }
+    }
+}
+
+// MARK: - Rock Paper Scissors Game
+struct RockPaperScissorsView: View {
+    @State private var playerChoice: String? = nil
+    @State private var computerChoice: String? = nil
+    @State private var result: String? = nil
+    @State private var playerScore = 0
+    @State private var computerScore = 0
+
+    private let choices = ["🪨", "📄", "✂️"]
+    private let choiceNames = ["🪨": "Rock", "📄": "Paper", "✂️": "Scissors"]
+
+    var body: some View {
+        VStack(spacing: 16) {
+            HStack(spacing: 8) {
+                Image(systemName: "hand.raised.fill")
+                    .foregroundColor(.purple)
+                Text("Rock Paper Scissors")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+
+            HStack(spacing: 30) {
+                VStack {
+                    Text("You")
+                        .font(.caption)
+                        .foregroundColor(.white.opacity(0.6))
+                    Text("\(playerScore)")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.cyan)
+                }
+                Text("vs")
+                    .foregroundColor(.white.opacity(0.4))
+                VStack {
+                    Text("CPU")
+                        .font(.caption)
+                        .foregroundColor(.white.opacity(0.6))
+                    Text("\(computerScore)")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.pink)
+                }
+            }
+
+            if let result = result {
+                Text(result)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .foregroundColor(result.contains("Win") ? .green : (result.contains("Lose") ? .red : .white.opacity(0.7)))
+            }
+
+            HStack(spacing: 12) {
+                if let player = playerChoice, let computer = computerChoice {
+                    Text(player)
+                        .font(.system(size: 40))
+                    Text("vs")
+                        .foregroundColor(.white.opacity(0.5))
+                    Text(computer)
+                        .font(.system(size: 40))
+                }
+            }
+            .frame(height: 50)
+
+            HStack(spacing: 16) {
+                ForEach(choices, id: \.self) { choice in
+                    Button(action: { play(choice) }) {
+                        Text(choice)
+                            .font(.system(size: 36))
+                            .frame(width: 60, height: 60)
+                            .background(Color.white.opacity(0.1))
+                            .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+
+            Button(action: resetGame) {
+                HStack(spacing: 4) {
+                    Image(systemName: "arrow.counterclockwise")
+                    Text("Reset Score")
+                }
+                .font(.caption)
+                .foregroundColor(.purple)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(Color.purple.opacity(0.15))
+                .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding()
+    }
+
+    private func play(_ choice: String) {
+        playerChoice = choice
+        computerChoice = choices.randomElement()
+
+        guard let player = playerChoice, let computer = computerChoice else { return }
+
+        if player == computer {
+            result = "It's a Tie!"
+        } else if (player == "🪨" && computer == "✂️") ||
+                  (player == "📄" && computer == "🪨") ||
+                  (player == "✂️" && computer == "📄") {
+            result = "You Win! 🎉"
+            playerScore += 1
+        } else {
+            result = "You Lose!"
+            computerScore += 1
+        }
+    }
+
+    private func resetGame() {
+        playerChoice = nil
+        computerChoice = nil
+        result = nil
+        playerScore = 0
+        computerScore = 0
+    }
+}
+
+// MARK: - Number Guessing Game
+struct NumberGuessView: View {
+    @State private var targetNumber = Int.random(in: 1...50)
+    @State private var guess = ""
+    @State private var hint = "Guess a number between 1-50"
+    @State private var attempts = 0
+    @State private var gameWon = false
+
+    var body: some View {
+        VStack(spacing: 16) {
+            HStack(spacing: 8) {
+                Image(systemName: "number.circle.fill")
+                    .foregroundColor(.purple)
+                Text("Number Guess")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+
+            Text("Attempts: \(attempts)")
+                .font(.caption)
+                .foregroundColor(.white.opacity(0.7))
+
+            Text(hint)
+                .font(.subheadline)
+                .foregroundColor(gameWon ? .green : (hint.contains("Lower") || hint.contains("Higher") ? .orange : .white.opacity(0.7)))
+                .multilineTextAlignment(.center)
+
+            if gameWon {
+                Text("🎉")
+                    .font(.system(size: 40))
+            }
+
+            HStack(spacing: 12) {
+                TextField("?", text: $guess)
+                    .textFieldStyle(.plain)
+                    .font(.title2)
+                    .frame(width: 80)
+                    .multilineTextAlignment(.center)
+                    .padding(12)
+                    .background(Color.white.opacity(0.1))
+                    .cornerRadius(12)
+                    .foregroundColor(.white)
+                    .disabled(gameWon)
+
+                Button(action: checkGuess) {
+                    Text("Guess")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 12)
+                        .background(Color.purple)
+                        .cornerRadius(12)
+                }
+                .buttonStyle(.plain)
+                .disabled(gameWon)
+            }
+
+            Button(action: resetGame) {
+                HStack(spacing: 4) {
+                    Image(systemName: "arrow.counterclockwise")
+                    Text("New Game")
+                }
+                .font(.caption)
+                .foregroundColor(.purple)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(Color.purple.opacity(0.15))
+                .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding()
+    }
+
+    private func checkGuess() {
+        guard let number = Int(guess) else {
+            hint = "Please enter a valid number"
+            return
+        }
+
+        attempts += 1
+
+        if number == targetNumber {
+            hint = "Correct! You got it in \(attempts) attempts!"
+            gameWon = true
+        } else if number < targetNumber {
+            hint = "Higher! ⬆️"
+        } else {
+            hint = "Lower! ⬇️"
+        }
+
+        guess = ""
+    }
+
+    private func resetGame() {
+        targetNumber = Int.random(in: 1...50)
+        guess = ""
+        hint = "Guess a number between 1-50"
+        attempts = 0
+        gameWon = false
     }
 }
 

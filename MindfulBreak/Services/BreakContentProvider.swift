@@ -1,9 +1,17 @@
 import Foundation
 import SwiftUI
 
+enum GameType: CaseIterable {
+    case ticTacToe
+    case memoryMatch
+    case rockPaperScissors
+    case numberGuess
+}
+
 enum BreakContent {
     case techNews(headline: String, source: String)
     case joke(text: String)
+    case game(type: GameType)
     case meme(imageURL: String, title: String)
 }
 
@@ -26,6 +34,9 @@ class BreakContentProvider: ObservableObject {
                 await loadTechNews()
             case .jokes:
                 await loadJoke()
+            case .game:
+                let randomGame = GameType.allCases.randomElement() ?? .ticTacToe
+                state = .loaded(.game(type: randomGame))
             case .meme:
                 await loadMeme()
             }

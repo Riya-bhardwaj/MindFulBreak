@@ -8,7 +8,7 @@ A minimal macOS menu bar app for mindful breaks. Take regular breaks with entert
 - **Break Reminders** - Pomodoro-style timer for regular break notifications
 - **Tech News** - Latest headlines from Hacker News
 - **Programming Jokes** - Random programming humor to brighten your break
-- **Quick Game** - Play Tic-Tac-Toe during your break
+- **Quick Games** - Random mini-games (Tic-Tac-Toe, Memory Match, Rock Paper Scissors, Number Guess)
 - **Tech Memes** - Programming memes to make you smile
 - **Breathing Animation** - Calming visual to help you relax
 - **Full-Screen Mode** - Expand the break window for an immersive experience
