@@ -6,7 +6,7 @@ struct AppConfig: Codable {
     let warningTimeSeconds: Int
 
     static let `default` = AppConfig(
-        workDurationMinutes: 25,
+        workDurationMinutes: 45,
         breakDurationSeconds: 300,
         warningTimeSeconds: 5
     )

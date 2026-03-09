@@ -36,7 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func startWorkTimer() {
         timer?.invalidate()
         timerStartDate = Date()
-        timer = Timer.scheduledTimer(withTimeInterval: 1200, repeats: true) { [weak self] _ in
+        let interval = ConfigManager.shared.workDurationSeconds
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
             DispatchQueue.main.async {
                 self?.showBreakAlert()
             }
@@ -46,7 +47,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func showBreakAlert() {
         let alert = NSAlert()
         alert.messageText = "Time for a mindful break"
-        alert.informativeText = "You've been focused for 20 minutes. Take a moment to refresh."
+        let minutes = ConfigManager.shared.config.workDurationMinutes
+        alert.informativeText = "You've been focused for \(minutes) minutes. Take a moment to refresh."
         alert.alertStyle = .informational
         alert.addButton(withTitle: "Take a Break")
         alert.addButton(withTitle: "Skip")
