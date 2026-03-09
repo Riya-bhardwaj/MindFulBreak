@@ -117,6 +117,7 @@ enum ContentPreference: String, CaseIterable {
     case jokes = "Programming Jokes"
     case game = "Quick Game"
     case meme = "Tech Meme"
+    case vocabulary = "Vocabulary Boost"
 
     var icon: String {
         switch self {
@@ -124,6 +125,7 @@ enum ContentPreference: String, CaseIterable {
         case .jokes: return "face.smiling.fill"
         case .game: return "gamecontroller.fill"
         case .meme: return "photo.fill"
+        case .vocabulary: return "book.fill"
         }
     }
 
@@ -133,6 +135,7 @@ enum ContentPreference: String, CaseIterable {
         case .jokes: return .orange
         case .game: return .purple
         case .meme: return .green
+        case .vocabulary: return .teal
         }
     }
 }

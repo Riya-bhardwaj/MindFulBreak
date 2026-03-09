@@ -1,0 +1,530 @@
+[
+  {
+    "type": "word",
+    "text": "Elaborate",
+    "meaning": "To add more detail or information about something.",
+    "examples": [
+      "Could you elaborate on your proposal?",
+      "She elaborated her plans during the presentation."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/elaborate"
+  },
+  {
+    "type": "word",
+    "text": "Straightforward",
+    "meaning": "Easy to understand or simple; not complicated.",
+    "examples": [
+      "The instructions were straightforward and easy to follow.",
+      "It was a straightforward decision."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/straightforward"
+  },
+  {
+    "type": "word",
+    "text": "Convey",
+    "meaning": "To communicate or express something, with or without words.",
+    "examples": [
+      "He struggled to convey his ideas clearly.",
+      "The report conveys the urgency of the situation."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/convey"
+  },
+  {
+    "type": "word",
+    "text": "Regardless",
+    "meaning": "Without being affected by something; in spite of something.",
+    "examples": [
+      "We'll go ahead with the plan regardless of the weather.",
+      "She continued working regardless of the interruptions."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/regardless"
+  },
+  {
+    "type": "word",
+    "text": "Genuine",
+    "meaning": "Real, exactly what it appears to be; sincere and honest.",
+    "examples": [
+      "Her concern for the team was genuine.",
+      "That's a genuine leather bag."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/genuine"
+  },
+  {
+    "type": "word",
+    "text": "Thorough",
+    "meaning": "Done carefully and completely, covering every detail.",
+    "examples": [
+      "She did a thorough review of the document.",
+      "The investigation was very thorough."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/thorough"
+  },
+  {
+    "type": "word",
+    "text": "Nevertheless",
+    "meaning": "Despite what has just been said or referred to.",
+    "examples": [
+      "It was raining; nevertheless, we went for a walk.",
+      "The task was difficult. Nevertheless, she completed it."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/nevertheless"
+  },
+  {
+    "type": "word",
+    "text": "Overwhelm",
+    "meaning": "To have a very strong emotional effect on someone; to be too much to deal with.",
+    "examples": [
+      "She was overwhelmed by the support from her colleagues.",
+      "Don't overwhelm yourself with too many tasks."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/overwhelm"
+  },
+  {
+    "type": "word",
+    "text": "Subtle",
+    "meaning": "Not immediately obvious or noticeable; delicate.",
+    "examples": [
+      "There's a subtle difference between the two designs.",
+      "His humor is very subtle."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/subtle"
+  },
+  {
+    "type": "word",
+    "text": "Precisely",
+    "meaning": "Exactly; in a way that is accurate and careful.",
+    "examples": [
+      "That's precisely what I meant.",
+      "The meeting starts at precisely 3 PM."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/precisely"
+  },
+  {
+    "type": "word",
+    "text": "Acknowledge",
+    "meaning": "To accept or admit the existence or truth of something.",
+    "examples": [
+      "She acknowledged the mistake and moved on.",
+      "He acknowledged the team's hard work."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/acknowledge"
+  },
+  {
+    "type": "word",
+    "text": "Imply",
+    "meaning": "To suggest something without saying it directly.",
+    "examples": [
+      "Are you implying that I made an error?",
+      "Her tone implied she was not happy with the result."
+    ],
+    "category": "conversational",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/imply"
+  },
+  {
+    "type": "word",
+    "text": "Delegate",
+    "meaning": "To give a particular job, duty, or responsibility to someone else.",
+    "examples": [
+      "A good manager knows how to delegate tasks effectively.",
+      "She delegated the report to her assistant."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/delegate"
+  },
+  {
+    "type": "word",
+    "text": "Prioritize",
+    "meaning": "To decide which tasks are most important and deal with them first.",
+    "examples": [
+      "We need to prioritize our tasks before the deadline.",
+      "Learning to prioritize is essential for productivity."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/prioritize"
+  },
+  {
+    "type": "word",
+    "text": "Collaborate",
+    "meaning": "To work jointly with others on an activity or project.",
+    "examples": [
+      "Our teams collaborated on the product launch.",
+      "She collaborated with engineers to solve the issue."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/collaborate"
+  },
+  {
+    "type": "word",
+    "text": "Escalate",
+    "meaning": "To become or make something become greater or more serious.",
+    "examples": [
+      "If the issue persists, escalate it to the manager.",
+      "Tensions escalated during the negotiation."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/escalate"
+  },
+  {
+    "type": "word",
+    "text": "Facilitate",
+    "meaning": "To make an action or process easier or more likely to happen.",
+    "examples": [
+      "She facilitated the discussion between departments.",
+      "Technology facilitates remote work."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/facilitate"
+  },
+  {
+    "type": "word",
+    "text": "Implement",
+    "meaning": "To put a plan or system into operation.",
+    "examples": [
+      "We plan to implement the new policy next quarter.",
+      "The team implemented the changes ahead of schedule."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/implement"
+  },
+  {
+    "type": "word",
+    "text": "Onboard",
+    "meaning": "To integrate a new employee into an organization.",
+    "examples": [
+      "We need to onboard three new hires this week.",
+      "The onboarding process takes about two weeks."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/onboard"
+  },
+  {
+    "type": "word",
+    "text": "Align",
+    "meaning": "To bring into agreement or cooperation with a particular group or position.",
+    "examples": [
+      "Let's align our goals before the next sprint.",
+      "The departments need to align on the strategy."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/align"
+  },
+  {
+    "type": "word",
+    "text": "Feedback",
+    "meaning": "Information about reactions to a product or person's performance, used as a basis for improvement.",
+    "examples": [
+      "I'd appreciate your feedback on this draft.",
+      "Constructive feedback helps the team grow."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/feedback"
+  },
+  {
+    "type": "word",
+    "text": "Deadline",
+    "meaning": "The latest time or date by which something should be completed.",
+    "examples": [
+      "Can we extend the deadline by one day?",
+      "Meeting deadlines is crucial for client trust."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/deadline"
+  },
+  {
+    "type": "word",
+    "text": "Stakeholder",
+    "meaning": "A person or group with an interest or concern in something.",
+    "examples": [
+      "We presented the results to key stakeholders.",
+      "All stakeholders should be informed about the change."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/stakeholder"
+  },
+  {
+    "type": "word",
+    "text": "Follow up",
+    "meaning": "To take further action on something or contact someone again.",
+    "examples": [
+      "I'll follow up with the client tomorrow.",
+      "Please follow up on the pending tasks."
+    ],
+    "category": "workplace",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/follow-up"
+  },
+  {
+    "type": "idiom",
+    "text": "Break the ice",
+    "meaning": "To make people feel more comfortable in a social situation.",
+    "examples": [
+      "He told a joke to break the ice at the meeting.",
+      "Games helped break the ice between teams."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/break-the-ice"
+  },
+  {
+    "type": "idiom",
+    "text": "Get the ball rolling",
+    "meaning": "To start an activity or process.",
+    "examples": [
+      "Let's get the ball rolling on the new project.",
+      "Who wants to get the ball rolling with ideas?"
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/get-the-ball-rolling"
+  },
+  {
+    "type": "idiom",
+    "text": "On the same page",
+    "meaning": "To have the same understanding or opinion about something.",
+    "examples": [
+      "Let's make sure we're on the same page before the meeting.",
+      "The team needs to be on the same page about the deadline."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/on-the-same-page"
+  },
+  {
+    "type": "idiom",
+    "text": "Think outside the box",
+    "meaning": "To think creatively or in an innovative way.",
+    "examples": [
+      "We need to think outside the box to solve this problem.",
+      "Her ability to think outside the box impressed the team."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/think-outside-the-box"
+  },
+  {
+    "type": "idiom",
+    "text": "Hit the ground running",
+    "meaning": "To start something and proceed at a fast pace with enthusiasm.",
+    "examples": [
+      "The new hire hit the ground running on day one.",
+      "We need to hit the ground running after the holiday break."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/hit-the-ground-running"
+  },
+  {
+    "type": "idiom",
+    "text": "Go the extra mile",
+    "meaning": "To make more effort than is expected of you.",
+    "examples": [
+      "She always goes the extra mile for her clients.",
+      "Going the extra mile can set you apart at work."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/go-the-extra-mile"
+  },
+  {
+    "type": "idiom",
+    "text": "Cut corners",
+    "meaning": "To do something in the easiest or cheapest way, often sacrificing quality.",
+    "examples": [
+      "Don't cut corners on safety procedures.",
+      "They cut corners to meet the deadline."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/cut-corners"
+  },
+  {
+    "type": "idiom",
+    "text": "Keep someone in the loop",
+    "meaning": "To keep someone informed about what is happening.",
+    "examples": [
+      "Please keep me in the loop on the project status.",
+      "It's important to keep stakeholders in the loop."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/in-the-loop"
+  },
+  {
+    "type": "idiom",
+    "text": "Touch base",
+    "meaning": "To make contact or communicate briefly with someone.",
+    "examples": [
+      "Let's touch base next week to review progress.",
+      "I wanted to touch base before the presentation."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/touch-base"
+  },
+  {
+    "type": "idiom",
+    "text": "Bite off more than you can chew",
+    "meaning": "To try to do more than you are able to do.",
+    "examples": [
+      "He bit off more than he could chew with three projects.",
+      "Be careful not to bite off more than you can chew."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/bite-off-more-than-you-can-chew"
+  },
+  {
+    "type": "idiom",
+    "text": "Call it a day",
+    "meaning": "To decide to stop working on something.",
+    "examples": [
+      "We've made good progress. Let's call it a day.",
+      "After eight hours, she decided to call it a day."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/call-it-a-day"
+  },
+  {
+    "type": "idiom",
+    "text": "Back to the drawing board",
+    "meaning": "To start planning something again because the previous attempt failed.",
+    "examples": [
+      "The proposal was rejected, so it's back to the drawing board.",
+      "We need to go back to the drawing board on this design."
+    ],
+    "category": "idiom",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/back-to-the-drawing-board"
+  },
+  {
+    "type": "word",
+    "text": "Outperform",
+    "meaning": "To perform better than someone or something.",
+    "examples": [
+      "Our team outperformed the sales target this quarter.",
+      "This laptop outperforms the previous model in speed."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/outperform"
+  },
+  {
+    "type": "word",
+    "text": "Leverage",
+    "meaning": "To use something to maximum advantage.",
+    "examples": [
+      "We should leverage our existing customer base for growth.",
+      "The company leveraged technology to reduce costs."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/leverage"
+  },
+  {
+    "type": "word",
+    "text": "Benchmark",
+    "meaning": "A standard or point of reference against which things may be compared.",
+    "examples": [
+      "We use industry benchmarks to measure our performance.",
+      "This product sets a new benchmark for quality."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/benchmark"
+  },
+  {
+    "type": "word",
+    "text": "Streamline",
+    "meaning": "To make a system or organization more efficient by simplifying it.",
+    "examples": [
+      "We streamlined the onboarding process to save time.",
+      "The workflow was streamlined to remove bottlenecks."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/streamline"
+  },
+  {
+    "type": "word",
+    "text": "Scalable",
+    "meaning": "Able to be changed in size or scale to meet demand.",
+    "examples": [
+      "We need a scalable solution for our growing user base.",
+      "The architecture was designed to be scalable."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/scalable"
+  },
+  {
+    "type": "word",
+    "text": "Optimize",
+    "meaning": "To make the best or most effective use of a situation or resource.",
+    "examples": [
+      "We optimized the algorithm for faster processing.",
+      "The team worked to optimize the customer experience."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/optimize"
+  },
+  {
+    "type": "word",
+    "text": "Mitigate",
+    "meaning": "To make something less severe, serious, or painful.",
+    "examples": [
+      "We took steps to mitigate the risk of data loss.",
+      "The new policy helps mitigate potential issues."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/mitigate"
+  },
+  {
+    "type": "word",
+    "text": "Proactive",
+    "meaning": "Creating or controlling a situation rather than just responding to it.",
+    "examples": [
+      "A proactive approach to problem-solving saves time.",
+      "She is proactive about identifying risks early."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/proactive"
+  },
+  {
+    "type": "word",
+    "text": "Iterate",
+    "meaning": "To repeat a process in order to generate a sequence of outcomes or to make improvements.",
+    "examples": [
+      "We iterated on the design based on user feedback.",
+      "The team plans to iterate quickly on the prototype."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/iterate"
+  },
+  {
+    "type": "word",
+    "text": "Innovative",
+    "meaning": "Introducing new ideas or methods; original and creative.",
+    "examples": [
+      "The company is known for its innovative products.",
+      "We encourage innovative thinking in our team."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/innovative"
+  },
+  {
+    "type": "word",
+    "text": "Resilient",
+    "meaning": "Able to recover quickly from difficult conditions.",
+    "examples": [
+      "A resilient team adapts to change quickly.",
+      "The system is resilient to network failures."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/resilient"
+  },
+  {
+    "type": "word",
+    "text": "Synergy",
+    "meaning": "The combined effect of working together that is greater than individual efforts.",
+    "examples": [
+      "The merger created synergy between the two companies.",
+      "There's great synergy between the design and engineering teams."
+    ],
+    "category": "professional",
+    "dictionaryLink": "https://dictionary.cambridge.org/dictionary/english/synergy"
+  }
+]

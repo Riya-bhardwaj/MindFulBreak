@@ -9,7 +9,15 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "MindfulBreak",
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                .copy("Resources")
+            ]
+        ),
+        .testTarget(
+            name: "MindfulBreakTests",
+            dependencies: ["MindfulBreak"],
+            path: "Tests"
         )
     ]
 )

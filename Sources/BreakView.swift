@@ -374,6 +374,92 @@ struct BreakView: View {
                             .stroke(Color.green.opacity(0.2), lineWidth: 1)
                     )
             )
+
+        case .vocabulary(let entry):
+            VStack(spacing: 16) {
+                ZStack {
+                    Circle()
+                        .fill(Color.teal.opacity(0.2))
+                        .frame(width: 60, height: 60)
+                    Image(systemName: "book.fill")
+                        .font(.title)
+                        .foregroundColor(.teal)
+                }
+
+                VStack(spacing: 4) {
+                    Text(entry.type == .idiom ? "Idiom" : "Word")
+                        .font(.caption2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.teal.opacity(0.7))
+                        .textCase(.uppercase)
+                        .tracking(1)
+                    Text(entry.text)
+                        .font(isFullScreen ? .title : .title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Meaning")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.teal.opacity(0.7))
+                    Text(entry.meaning)
+                        .font(isFullScreen ? .body : .subheadline)
+                        .foregroundColor(.white.opacity(0.9))
+                        .multilineTextAlignment(.leading)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 8)
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Examples")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.teal.opacity(0.7))
+                    ForEach(Array(entry.examples.enumerated()), id: \.offset) { index, example in
+                        HStack(alignment: .top, spacing: 6) {
+                            Text("\(index + 1).")
+                                .font(.caption)
+                                .foregroundColor(.teal.opacity(0.6))
+                            Text(example)
+                                .font(.caption)
+                                .foregroundColor(.white.opacity(0.8))
+                                .italic()
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 8)
+
+                if let url = URL(string: entry.dictionaryLink) {
+                    Button(action: {
+                        NSWorkspace.shared.open(url)
+                    }) {
+                        HStack(spacing: 4) {
+                            Text("More Info")
+                            Image(systemName: "arrow.up.right")
+                        }
+                        .font(.caption)
+                        .foregroundColor(.teal)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(Color.teal.opacity(0.15))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(24)
+            .frame(maxWidth: isFullScreen ? 600 : 480, maxHeight: isFullScreen ? .infinity : 340)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.white.opacity(0.05))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color.teal.opacity(0.2), lineWidth: 1)
+                    )
+            )
         }
     }
 }

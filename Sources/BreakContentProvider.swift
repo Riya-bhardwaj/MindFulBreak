@@ -13,6 +13,7 @@ enum BreakContent {
     case joke(text: String)
     case game(type: GameType)
     case meme(imageURL: String, title: String)
+    case vocabulary(entry: VocabularyEntry)
 }
 
 enum ContentState {
@@ -24,6 +25,7 @@ enum ContentState {
 @MainActor
 class BreakContentProvider: ObservableObject {
     @Published var state: ContentState = .loading
+    private let vocabularyService = VocabularyService()
 
     func loadContent(for preference: ContentPreference) {
         state = .loading
@@ -39,8 +41,15 @@ class BreakContentProvider: ObservableObject {
                 state = .loaded(.game(type: randomGame))
             case .meme:
                 await loadMeme()
+            case .vocabulary:
+                loadVocabulary()
             }
         }
+    }
+
+    private func loadVocabulary() {
+        let entry = vocabularyService.getNext()
+        state = .loaded(.vocabulary(entry: entry))
     }
     
     private func loadTechNews() async {

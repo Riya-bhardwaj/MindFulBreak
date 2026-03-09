@@ -1,6 +1,6 @@
 # MindfulBreak
 
-A minimal macOS menu bar app for mindful breaks. Take regular breaks with entertaining content - tech news, programming jokes, a quick game, or tech memes.
+A minimal macOS menu bar app for mindful breaks. Take regular breaks with entertaining content - tech news, programming jokes, a quick game, tech memes, or learn new words and idioms.
 
 ## Features
 
@@ -10,6 +10,7 @@ A minimal macOS menu bar app for mindful breaks. Take regular breaks with entert
 - **Programming Jokes** - Random programming humor to brighten your break
 - **Quick Games** - Random mini-games (Tic-Tac-Toe, Memory Match, Rock Paper Scissors, Number Guess)
 - **Tech Memes** - Programming memes to make you smile
+- **Vocabulary Boost** - Expand your vocabulary with curated words and idioms, complete with meanings, usage examples, and Cambridge Dictionary links
 - **Breathing Animation** - Calming visual to help you relax
 - **Full-Screen Mode** - Expand the break window for an immersive experience
 - **5+ Minute Warning** - Alert if you've been on break too long
@@ -64,6 +65,7 @@ Options:
    - Programming Jokes
    - Quick Game
    - Tech Meme
+   - Vocabulary Boost
 3. **Take a Break** - Click "Take a Break Now" to open the break window
 4. **During Break** - Enjoy your content with a calming breathing animation
 5. **Refresh** - Click refresh to load new content
@@ -92,8 +94,14 @@ MindfulBreak/
 │   ├── main.swift                    # App entry point
 │   ├── MenuBarView.swift             # Menu bar dropdown UI
 │   ├── BreakView.swift               # Break window UI with content cards
-│   ├── BreakContentProvider.swift    # Content loading (news, jokes, memes)
-│   └── BreakWindowController.swift   # Window management
+│   ├── BreakContentProvider.swift    # Content loading (news, jokes, memes, vocabulary)
+│   ├── VocabularyService.swift       # Vocabulary data loading and selection
+│   ├── BreakWindowController.swift   # Window management
+│   └── Resources/
+│       ├── config.json               # App configuration
+│       └── vocabulary.json           # Curated vocabulary dataset (48 entries)
+├── Tests/
+│   └── VocabularyServiceTests.swift  # Unit tests for vocabulary feature
 ├── MindfulBreak/
 │   ├── MindfulBreakApp.swift         # Alternative app entry
 │   ├── Views/
