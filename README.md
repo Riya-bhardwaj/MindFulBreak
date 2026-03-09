@@ -5,7 +5,7 @@ A minimal macOS menu bar app for mindful breaks. Take regular breaks with entert
 ## Features
 
 - **Menu Bar App** - Lives quietly in your menu bar with a leaf icon
-- **Break Reminders** - Pomodoro-style timer for regular break notifications
+- **Break Reminders** - 45-minute Pomodoro-style timer for regular break notifications
 - **Tech News** - Latest headlines from Hacker News
 - **Programming Jokes** - Random programming humor to brighten your break
 - **Quick Games** - Random mini-games (Tic-Tac-Toe, Memory Match, Rock Paper Scissors, Number Guess)
